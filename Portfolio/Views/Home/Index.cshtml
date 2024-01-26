@@ -1,0 +1,218 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section id="about" class="about-section section-padding bd-bottom" data-scroll-index="1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-7 sm-padding wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">
+
+                <div class="about-content">
+                    <h2>Let Me Introduce Myself.</h2>
+                    <p>@Model.Person.Description</p>
+                    <ul class="profile-info">
+                        <li><span>Full Name</span> @Model.Person.FullName</li>
+                        <li><span>Birth Date</span> @Model.Person.DateOfBirth.ToString("dd/mm/yyyy")</li>
+                        <li><span>Address</span> @Model.Person.Adress</li>
+                        <li><span>Email</span> @Model.Person.Email</li>
+                        <li><span>Website</span> @Model.Person.Website</li>
+                    </ul>
+                    <a href="#" download="@Model.Person.CVPath" class="default-btn">Download CV <i class="ti-download"></i></a>
+                </div>
+
+            </div>
+            <div class="col-md-5 sm-padding wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1000ms">
+                <div class="about-bg">
+                    <img src="~/Image/@Model.Person.ProfileImgPath" alt="img">
+                    <div class="dots"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.about-section -->
+
+<section id="resume" class="resume-section section-padding bd-bottom" data-scroll-index="2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 sm-padding wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">
+                <div class="section-heading mb-40">
+                    <h2>Working Experience</h2>
+                </div>
+                <ul class="exp-list">
+                    @foreach (var item in Model.Experiences)
+                    {
+                        <li>
+                            <div class="exp-date">
+                                <i class="ti-bookmark"></i>
+                                @{
+                                    string dateRange = item.IsContinue ? $"{item.EntryDate.ToString("dd/mm/yyyy")} -Till now" : $"{item.EntryDate.ToString("dd/mm/yyyy")} - {item.LeaveDate?.ToString("dd/mm/yyyy")}";
+                                }
+                                <span>@dateRange</span>
+                            </div>
+                            <div class="exp-content">
+                                <h4>@item.CompanyName <span>@item.Position.Name</span></h4>
+                                <p>@item.Description</p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="col-md-6 sm-padding wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1000ms">
+                <div class="skill-wrap">
+                    <div class="section-heading mb-40">
+                        <h2>Professional Skills</h2>
+                    </div>
+                    <ul class="skill-items">
+                        @foreach (var item in Model.SkillDetails)
+                        {
+                            <li class="skill-item">
+                                <h5>@item.Skill.Name</h5>
+                                <div class="progress">
+                                    @{
+                                        int point = item.Level;
+                                    }
+                                    <div class="progress-bar wow slideInLeft" data-wow-delay="0ms" data-wow-duration="2000ms" role="progressbar" style="width: @point%;">
+                                        <span>@point%</span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.resume-section -->
+
+<section id="services" class="services-section section-padding bd-bottom" data-scroll-index="3">
+    <div class="container">
+        <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
+            <h2>Outstanding Services</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Services)
+            {
+                <div class="col-md-4 col-sm-6 sm-padding wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
+                    <div class="services-item">
+                        <i class="@item.IconName"></i>
+                        <h3>@item.Title</h3>
+                        <p>@item.Description</p>
+                        <div class="dots"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section><!-- /.services-section -->
+
+<section id="portfolios" class="portfolio-section section-padding bd-bottom" data-scroll-index="4">
+    <div class="container">
+        <div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
+            <h2>Work Portfolios</h2>
+        </div>
+        <div class="portfolio-wrapper">
+            <ul class="portfolio-filter text-center mb-30">
+                <li class="active" data-filter="*">All</li>
+                @foreach (var item in Model.WorkCategories)
+                {
+                    <li data-filter=".@item.Name">@item.Name</li>
+                }
+            </ul><!-- Portfolio Filter -->
+            <div class="row portfolio-items">
+                @foreach (var item in Model.Portfolis)
+                {
+                    <div class="col-md-4 col-sm-6 padding-10 single-item design wordpress">
+                        <div class="portfolio-box">
+                            <img src="~/Image/WorkImages/@item.WorkImgPath" alt="img">
+                            <div class="portfolio-content">
+                                <h3><a class="img-popup" href="~/Image/WorkImages/@item.WorkImgPath">Design Studio<span>@item.WorkCategory.Name</span></a></h3>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section><!-- /.portfolio-section -->
+
+<section id="reviews" class="testimonial-section section-padding bd-bottom" data-scroll-index="5">
+    <div class="container">
+        <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
+            <h2>Clients Reviews</h2>
+        </div>
+        <div id="testimonial-carousel" class="testimonial-carousel owl-carousel">
+            <div class="testimonial-item">
+                <div class="testimonial-innter">
+                    <div class="testi-thumb"><img src="img/testi-1.jpg" alt="img"></div>
+                    <div class="testi-content">
+                        <p>"This has been one of the best Customer Support experiences I have ever had. The design of the theme also, AMAZING! Thank you so much for all your help DynamicLayers!"</p>
+                        <h4>Kyle Frederick <span>Envato.INC</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-innter">
+                    <div class="testi-thumb"><img src="img/testi-2.jpg" alt="img"></div>
+                    <div class="testi-content">
+                        <p>"This has been one of the best Customer Support experiences I have ever had. The design of the theme also, AMAZING! Thank you so much for all your help DynamicLayers!"</p>
+                        <h4>José Carpio <span>Google.ORG</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-innter">
+                    <div class="testi-thumb"><img src="img/testi-3.jpg" alt="img"></div>
+                    <div class="testi-content">
+                        <p>"This has been one of the best Customer Support experiences I have ever had. The design of the theme also, AMAZING! Thank you so much for all your help DynamicLayers!"</p>
+                        <h4>Melania Rose <span>Themeforest.CO</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.testimonial-section -->
+
+<section class="cta-section section-padding bd-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 xs-padding">
+                <div class="cta-content">
+                    <h3>Need a Consultant for Your Business?</h3>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="#" class="default-btn">Hire Me Now!</a>
+            </div>
+        </div>
+    </div>
+</section><!-- /.cta-section -->
+
+<section id="contact" class="contact-section section-padding" data-scroll-index="6">
+    <div class="container">
+        <div class="section-heading mb-40 text-center wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
+            <h2>Get In Touch</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="https://html.dynamiclayers.net/dl/naven/light/contact.php" method="post" id="ajax_form" class="row contact-form text-center">
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" id="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <textarea class="form-control message" id="message" name="message" placeholder="Message" required></textarea>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <button id="submit" class="default-btn" type="submit">Send Message</button>
+                    </div>
+                    <div id="form-messages" class="form-group col-lg-12">
+                        <div class="alert" role="alert"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><!-- /.contact-section -->

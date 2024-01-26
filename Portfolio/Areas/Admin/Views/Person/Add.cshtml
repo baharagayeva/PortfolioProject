@@ -1,0 +1,83 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Person</h3></div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/Person/Add" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputFirstName">FirstName</label>
+                                        <input asp-for="FirstName" type="text" class="form-control" id="firstName" placeholder="enter FirstName" />
+                                        <span asp-validation-for="FirstName" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputLastName">LastName</label>
+                                        <input asp-for="LastName" type="text" class="form-control" id="lastName" placeholder="enter LastName" />
+                                        <span asp-validation-for="LastName" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3" >
+                                        <select asp-for="PositionID" class="rounded-2 p-2" style="border: 1px solid #d1d3e2">
+                                            <option value="">Position</option>
+                                            @foreach (var item in ViewData["Positions"] as IEnumerable<Position>)
+                                            {
+                                                <option value="@item.ID">@item.Name</option>
+                                            }
+                                        </select>
+                                   </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputDateOfBirth">DateOfBirth </label>
+                                        <input asp-for="DateOfBirth" type="date" class="form-control" id="dateOfBirth" placeholder="enter DateOfBirth" />
+                                        <span asp-validation-for="DateOfBirth" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputAdress">Adress </label>
+                                        <input asp-for="Adress" type="text" class="form-control" id="adress" placeholder="enter Adress" />
+                                        <span asp-validation-for="Adress" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputEmail">Email </label>
+                                        <input asp-for="Email" type="text" class="form-control" id="email" placeholder="enter Email" />
+                                        <span asp-validation-for="Email" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputWebsite">Website </label>
+                                        <input asp-for="Website" type="text" class="form-control" id="website" placeholder="enter Website" />
+                                        <span asp-validation-for="Website" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputProfileImgPath">Upload Image:</label>
+                                        <input asp-for="ImgFile" type="file" class="form-control"/>
+                                        <span asp-validation-for="ProfileImgPath" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputCVPath">CVPath </label>
+                                        <input asp-for="CvFile" type="file" class="form-control" id="cvPath" placeholder="enter CVPath" />
+                                        <span asp-validation-for="CVPath" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputDescription">Description </label>
+                                        <textarea asp-for="Description" type="text" class="form-control" id="description" placeholder="enter Description"></textarea>
+                                        <span asp-validation-for="Description" style="color:red"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

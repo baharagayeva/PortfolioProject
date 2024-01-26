@@ -1,0 +1,49 @@
+﻿@model Portfoli
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Portfolio</h3></div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/Portfolio/Add" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputTitle">Title</label>
+                                        <input asp-for="Title" type="text" class="form-control" placeholder="enter Title" />
+                                        <span asp-validation-for="Title" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <select asp-for="WorkCategoryID" class="rounded-2 p-2" style="border: 1px solid #d1d3e2">
+                                            <option value="">WorkCategory</option>
+                                            @foreach (var item in ViewData["WorkCategories"] as IEnumerable<WorkCategory>)
+                                            {
+                                                <option value="@item.ID">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputWorkImgPath">Upload Image:</label>
+                                        <input asp-for="workImgFile" type="file" class="form-control" />
+                                        <span asp-validation-for="WorkImgPath" style="color:red"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

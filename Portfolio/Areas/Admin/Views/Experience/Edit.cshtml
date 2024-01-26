@@ -1,0 +1,63 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit Experience</h3></div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="id">Id</label>
+                                        <input asp-for="ID" type="text" class="form-control" id="id" placeholder="enter" disabled="disabled" />
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputCompanyName">CompanyName</label>
+                                        <input asp-for="CompanyName" type="text" class="form-control" id="companyName" placeholder="enter CompanyName" />
+                                        <span asp-validation-for="CompanyName" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <select asp-for="PositionID" class="rounded-2 p-2" style="border: 1px solid #d1d3e2">
+                                            <option value="PositionID">Position</option>
+                                            @foreach (var item in ViewData["Positions"] as IEnumerable<Position>)
+                                            {
+                                                <option value="@item.ID">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputEntryDate">EntryDate </label>
+                                        <input asp-for="EntryDate" type="date" class="form-control" id="entryDate" placeholder="enter EntryDate" />
+                                        <span asp-validation-for="EntryDate" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputLeaveDate">LeaveDate</label>
+                                        <input asp-for="LeaveDate" type="date" class="form-control" id="leaveDate" placeholder="enter LeaveDate" />
+                                        <span asp-validation-for="LeaveDate" style="color:red"></span>
+                                    </div>
+                                    <div class="form mb-3 mb-md-3">
+                                        <label for="inputDescription">Description </label>
+                                        <textarea asp-for="Description" type="text" class="form-control" id="description" placeholder="enter Description"></textarea>
+                                        <span asp-validation-for="Description" style="color:red"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

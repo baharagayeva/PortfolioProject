@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Position>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800 mt-4">Positions</h1>
+
+
+    <a href="/admin/position/Add" class="btn btn-primary">Add New</a>
+
+    <!-- DataTaBles Example -->
+    <div class="card shadow mb-4 mt-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>
+                                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.ID">
+                                        Edit
+                                    </a>
+
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ID">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function confirmDelete(positionId) {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Perform AJAX request to delete the item
+                $.ajax({
+                    url: '/admin/position/Delete/' + positionId,
+                    type: 'GET',
+                    success: function () {
+                        swalWithBootstrapButtons.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        // You may also refresh the page or update the table here
+                    },
+                    error: function () {
+                        swalWithBootstrapButtons.fire({
+                            title: "Error",
+                            text: "An error occurred while deleting the item.",
+                            icon: "error"
+                        });
+                    }
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary file is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+    }
+
+    
+</script>
