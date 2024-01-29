@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\User\Documents\Codelandiya\PortfolioProject\Portfolio
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/User/Documents/Codelandiya/PortfolioProject/Portfolio/Areas/Admin/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Documents/Codelandiya/PortfolioProject/Portfolio/Areas/Admin/Views/Experience/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXhwZXJpZW5jZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -134,10 +138,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/Codelandiya/PortfolioProject/Portfolio/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/User/Documents/Codelandiya/PortfolioProject/Portfolio/Views/Login/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/Codelandiya/PortfolioProject/Portfolio/Views/Shared/Error.cshtml]

@@ -1,12 +1,14 @@
 ﻿using Business.Abstract;
 using Core.Helpers;
 using Entities.Concrete.TableModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace Portfolio.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ExperienceController : Controller
     {
         private readonly IExperienceService _experienceService;

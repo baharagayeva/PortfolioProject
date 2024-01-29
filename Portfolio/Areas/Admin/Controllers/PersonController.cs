@@ -1,12 +1,14 @@
 ﻿using Business.Abstract;
 using Core.Helpers;
 using Entities.Concrete.TableModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class PersonController : Controller
     {
         private readonly IPersonService _personService;

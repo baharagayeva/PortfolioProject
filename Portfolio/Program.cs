@@ -6,14 +6,37 @@ using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete.TableModels;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Portfolio.Classes;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<PortfolioDbContext>().AddIdentity<User, Role>().AddEntityFrameworkStores<PortfolioDbContext>();
+builder.Services.AddDbContext<PortfolioDbContext>()
+                .AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<PortfolioDbContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = new PathString("/Admin/Auth/Login");
+    options.Cookie = new CookieBuilder
+    {
+        Name = "PortfolioIdentityCookie",
+        HttpOnly = false,
+        SameSite = SameSiteMode.Lax,
+        SecurePolicy = CookieSecurePolicy.Always
+    };
+    options.SlidingExpiration = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+});
 
 builder.Services.AddScoped<IPositionService, PositionManager>();
 builder.Services.AddScoped<IPositionDAL, PositionEFDal>();
@@ -29,7 +52,7 @@ builder.Services.AddScoped<IWorkCategoryService, WorkCategoryManager>();
 builder.Services.AddScoped<IWorkCategoryDAL, WorkCategoryEFDal>();
 builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
 builder.Services.AddScoped<IPortfolioDAL, PortfolioEFDal>();
-builder.Services.AddScoped<IServiceService, ServiceManager>();  
+builder.Services.AddScoped<IServiceService, ServiceManager>();
 builder.Services.AddScoped<IServiceDAL, ServiceEFDal>();
 builder.Services.AddScoped<IValidator<Person>, PersonValidator>();
 builder.Services.AddScoped<IValidator<Experience>, ExperienceValidator>();
@@ -70,13 +93,15 @@ app.UseEndpoints(endpoints =>
     pattern: "{controller=Home}/{action=Index}/{id?}"
         );
 
-    endpoints.MapControllerRoute(
-     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}"
-        );
-
 });
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<User>>();
 
+    // Call a method to seed the default user (use async)
+    SeedData.GenerateFirstUser(userManager).GetAwaiter().GetResult();
+}
 
 app.Run();

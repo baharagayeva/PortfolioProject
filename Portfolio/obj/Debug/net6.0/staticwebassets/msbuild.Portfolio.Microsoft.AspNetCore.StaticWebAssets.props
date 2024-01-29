@@ -880,6 +880,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Cv\c2d2062f-0c4b-4df3-88e6-2eee6957be89_Galileo's Odd Ratio Laminasiya.docx))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Cv\c7d01623-d28d-4989-ade1-20792fa14695_Psixo final.docx))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portfolio</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portfolio</BasePath>
+      <RelativePath>Cv/c7d01623-d28d-4989-ade1-20792fa14695_Psixo final.docx</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Cv\c7d01623-d28d-4989-ade1-20792fa14695_Psixo final.docx))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Cv\e1f31704-c7e0-4635-88b3-8a0d57c8e780_Definition.docx))">
       <SourceType>Package</SourceType>
       <SourceId>Portfolio</SourceId>
@@ -1135,6 +1151,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Image\09c15031-2dec-455a-8017-85a15ca04be7_headphones.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Image\0f7b41d5-4a50-4ab7-b914-a9074bba4fa2_Screenshot 2023-07-20 214855.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portfolio</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portfolio</BasePath>
+      <RelativePath>Image/0f7b41d5-4a50-4ab7-b914-a9074bba4fa2_Screenshot 2023-07-20 214855.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Image\0f7b41d5-4a50-4ab7-b914-a9074bba4fa2_Screenshot 2023-07-20 214855.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Image\29c28fab-c716-451e-9d5d-8b47681e71cb_2849835_phone_telephone_cell_call_communication_icon.png))">
       <SourceType>Package</SourceType>

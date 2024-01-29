@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
 using System.Diagnostics;
@@ -28,7 +29,7 @@ namespace Portfolio.Controllers
             _portfolioService = portfolioService;
             _positionService = positionService;
         }
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var personData = _personService.GetAll().Data[0];

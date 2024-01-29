@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c4HJ3QBWzB4aSkEnkQA6xw1ir3s5cFlID8QzcJuiS/0=",
+  "Hash": "K67sQW96s53lHCFQqhT1fGj2v8pBbn3kaHjeM70OA+4=",
   "Source": "Portfolio",
   "BasePath": "_content/Portfolio",
   "Mode": "Default",
@@ -986,6 +986,23 @@
       "OriginalItemSpec": "wwwroot\\Cv\\c2d2062f-0c4b-4df3-88e6-2eee6957be89_Galileo's Odd Ratio Laminasiya.docx"
     },
     {
+      "Identity": "C:\\Users\\User\\Documents\\Codelandiya\\PortfolioProject\\Portfolio\\wwwroot\\Cv\\c7d01623-d28d-4989-ade1-20792fa14695_Psixo final.docx",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Documents\\Codelandiya\\PortfolioProject\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "Cv/c7d01623-d28d-4989-ade1-20792fa14695_Psixo final.docx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Cv\\c7d01623-d28d-4989-ade1-20792fa14695_Psixo final.docx"
+    },
+    {
       "Identity": "C:\\Users\\User\\Documents\\Codelandiya\\PortfolioProject\\Portfolio\\wwwroot\\Cv\\e1f31704-c7e0-4635-88b3-8a0d57c8e780_Definition.docx",
       "SourceId": "Portfolio",
       "SourceType": "Discovered",
@@ -1256,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\09c15031-2dec-455a-8017-85a15ca04be7_headphones.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Documents\\Codelandiya\\PortfolioProject\\Portfolio\\wwwroot\\Image\\0f7b41d5-4a50-4ab7-b914-a9074bba4fa2_Screenshot 2023-07-20 214855.png",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Documents\\Codelandiya\\PortfolioProject\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "Image/0f7b41d5-4a50-4ab7-b914-a9074bba4fa2_Screenshot 2023-07-20 214855.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\0f7b41d5-4a50-4ab7-b914-a9074bba4fa2_Screenshot 2023-07-20 214855.png"
     },
     {
       "Identity": "C:\\Users\\User\\Documents\\Codelandiya\\PortfolioProject\\Portfolio\\wwwroot\\Image\\29c28fab-c716-451e-9d5d-8b47681e71cb_2849835_phone_telephone_cell_call_communication_icon.png",

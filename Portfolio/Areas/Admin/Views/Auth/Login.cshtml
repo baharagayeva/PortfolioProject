@@ -1,0 +1,36 @@
+﻿@using Entities.Concrete.TableModels.UserDTO;
+@model UserDTO
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel Login</title>
+    <link rel="stylesheet" href="~/css/LoginPage/StyleSheet.css" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="contact-form">
+            <h2>Admin Login</h2>
+            <form asp-action="Login" asp-controller="Auth" method="post">
+                <div class="txtb">
+                    <label asp-for="Username">Username</label>
+                    <input asp-for="Username" type="text" placeholder="Username" />
+                </div>
+                <div class="txtb">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" placeholder="Password" />
+                    <i class="suffix-icon feather cursor-pointer text-dark icon-eye" ng-reflect-ng-class="icon-eye"></i>
+                </div>
+                <input type="submit" class="logbtn" value="login" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete.TableModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +22,8 @@ namespace DataAccess.Concrete.EntityFramework
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            //modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin", NormalizedName = "Admin".ToUpper() });
         }
 
         public DbSet<Experience> Experiences { get; set; }
