@@ -13,22 +13,22 @@
     <title>Admin Panel Login</title>
     <link rel="stylesheet" href="~/css/LoginPage/StyleSheet.css" />
 </head>
-<body>
+<body style="background-image: src(../../../../wwwroot/img/hero-bg.jpg)">
 
     <div class="container">
         <div class="contact-form">
             <h2>Admin Login</h2>
             <form asp-action="Login" asp-controller="Auth" method="post">
                 <div class="txtb">
-                    <label asp-for="Username">Username</label>
+                   @*  <label style="padding-left:5px" asp-for="Username">Username</label> *@
                     <input asp-for="Username" type="text" placeholder="Username" />
                 </div>
                 <div class="txtb">
-                    <label asp-for="Password">Password</label>
+                    @* <label style="padding-left:5px" asp-for="Password">Password</label> *@
                     <input asp-for="Password" type="password" placeholder="Password" />
                     <i class="suffix-icon feather cursor-pointer text-dark icon-eye" ng-reflect-ng-class="icon-eye"></i>
                 </div>
-                <input type="submit" class="logbtn" value="login" />
+                <input style="background-color:  #722F37" type="submit" class="logbtn" value="Login" />
             </form>
         </div>
     </div>
