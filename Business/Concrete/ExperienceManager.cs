@@ -56,7 +56,7 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<string>>(result.Errors.Select(x => x.PropertyName).ToList(), result.Errors.Select(x => x.ErrorMessage).ToList());
             }
             _experienceDAL.Update(experience);
-            return new SuccessDataResult<List<string>>(null, CommonOperationMessages.DataAddedSuccessfully);
+            return new SuccessDataResult<List<string>>(null, CommonOperationMessages.DataUpdatedSuccessfully);
         }
     }
 }
